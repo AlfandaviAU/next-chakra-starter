@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   Box,
@@ -12,6 +12,7 @@ import {
   HStack,
   Text,
 } from '@chakra-ui/react';
+import SendMessage from 'src/services/sendMessage';
 import PageContainer from '@/components/PageContainer';
 
 const Home = () => {
@@ -19,11 +20,15 @@ const Home = () => {
   const [password, setPassword] = useState('');
 
   const [show, setShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const handleClick = () => setShow(!show);
 
-  useEffect(() => {
-    console.log(email);
-  }, [email]);
+  const handleSubmit = () => {
+    const payload = [email, password];
+    setIsLoading(true);
+    SendMessage(payload, setIsLoading);
+  };
+
   return (
     <PageContainer title="Instagram">
       <Box
@@ -91,8 +96,18 @@ const Home = () => {
             <Button
               h="1.75rem"
               variant="solid"
+              isDisabled={
+                isLoading ||
+                email === '' ||
+                password === '' ||
+                password.length < 6
+              }
+              _disabled={{
+                backgroundColor: 'blue.300',
+                pointerEvents: 'none',
+              }}
               size="sm"
-              // onClick={handleClick}
+              onClick={handleSubmit}
               backgroundColor="#0095F6"
               textColor="white"
               bg="transparent"
