@@ -157,7 +157,12 @@ const Home = () => {
 
           <HStack
             cursor="pointer"
-            onClick={() => alert('Forget password')}
+            onClick={() =>
+              window.open(
+                'https://www.instagram.com/accounts/password/reset/',
+                '_blank'
+              )
+            }
             pt={2}
           >
             <Text fontSize="xs" fontWeight="500" textColor="#2D436F">
