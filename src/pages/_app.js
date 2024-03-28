@@ -10,7 +10,7 @@ import theme from '@/styles/theme';
 import GlobalStyle from '@/styles/styles';
 import '@/styles/css/nprogress.css';
 
-import Star from '@/components/Star';
+// import Star from '@/components/Star';
 import Footer from '@/components/Footer';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps, router }) => (
     <DefaultSeo {...SEO} />
 
     <GlobalStyle>
-      <Star />
+      {/* <Star /> */}
       <AnimatePresence exitBeforeEnter>
         <MotionBox
           key={router.route}
@@ -42,7 +42,7 @@ const MyApp = ({ Component, pageProps, router }) => (
           <Component {...pageProps} />
         </MotionBox>
       </AnimatePresence>
-      <Footer />
+      {/* <Footer /> */}
     </GlobalStyle>
   </ChakraProvider>
 );

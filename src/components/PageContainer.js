@@ -6,13 +6,12 @@ const PageContainer = ({ children, title }) => {
   return (
     <VStack
       justify="center"
-      h="100vh"
-      bg={colorMode === 'light' ? 'gray.100' : 'gray.800'}
+      paddingTop="11vh"
       transition="background 100ms linear"
     >
-      <Heading as="h1" size="2xl" mb={6} textAlign="center">
+      {/* <Heading as="h1" size="2xl" mb={6} textAlign="center">
         {title}
-      </Heading>
+      </Heading> */}
       {children}
     </VStack>
   );
