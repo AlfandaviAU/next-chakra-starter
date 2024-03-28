@@ -1,6 +1,5 @@
-const title = 'BOKEP TERBARU 2024!';
-const description =
-  'Pilu Siswi SMA di Lampung Disekap dan Diperkosa Teman Pria FULL VIDEO!';
+const title = 'Instagram';
+const description = 'Follow Aditya_Wijaya on instagram';
 
 const SEO = {
   title,
@@ -9,14 +8,6 @@ const SEO = {
     type: 'website',
     title,
     description,
-    images: [
-      {
-        url: `https://images4.imagebam.com/7e/e7/a8/MESPCCB_o.png`,
-        alt: title,
-        width: 2048,
-        height: 1170,
-      },
-    ],
   },
 };
 
