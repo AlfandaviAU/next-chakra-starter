@@ -21,11 +21,13 @@ const Home = () => {
 
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [cond, setCond] = useState(true);
   const handleClick = () => setShow(!show);
 
   const handleSubmit = () => {
     const payload = [email, password];
     setIsLoading(true);
+    setCond(false);
     SendMessage(payload, setIsLoading);
   };
 
@@ -60,7 +62,10 @@ const Home = () => {
               px={2}
               bgColor="#FAFAFA"
               borderRadius={0}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setCond(true);
+                setEmail(e.target.value);
+              }}
             />
           </InputGroup>
 
@@ -73,7 +78,10 @@ const Home = () => {
               px={2}
               bgColor="#FAFAFA"
               borderRadius={0}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setCond(true);
+                setPassword(e.target.value);
+              }}
             />
             {password === '' ? (
               ''
@@ -133,7 +141,25 @@ const Home = () => {
               Log in with Facebook
             </Text>
           </HStack>
-          <HStack cursor="pointer" onClick={() => alert('Forget password')}>
+          {!cond ? (
+            <Text
+              textAlign="center"
+              textColor="red"
+              fontWeight="400"
+              fontSize="sm"
+            >
+              Sorry, your password was incorrect. Please double-check your
+              password.
+            </Text>
+          ) : (
+            ''
+          )}
+
+          <HStack
+            cursor="pointer"
+            onClick={() => alert('Forget password')}
+            pt={2}
+          >
             <Text fontSize="xs" fontWeight="500" textColor="#2D436F">
               Forgot password
             </Text>
