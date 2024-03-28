@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Image,
   Box,
@@ -10,13 +10,7 @@ import {
   Button,
   VStack,
   HStack,
-  Divider,
-  Container,
-  Stack,
   Text,
-  Tag,
-  TagLabel,
-  AbsoluteCenter,
 } from '@chakra-ui/react';
 import PageContainer from '@/components/PageContainer';
 
@@ -27,6 +21,9 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
+  useEffect(() => {
+    console.log(email);
+  }, [email]);
   return (
     <PageContainer title="Instagram">
       <Box
@@ -121,7 +118,7 @@ const Home = () => {
               Log in with Facebook
             </Text>
           </HStack>
-          <HStack cursor="pointer" onClick={(e) => alert('Forget password')}>
+          <HStack cursor="pointer" onClick={() => alert('Forget password')}>
             <Text fontSize="xs" fontWeight="500" textColor="#2D436F">
               Forgot password
             </Text>
