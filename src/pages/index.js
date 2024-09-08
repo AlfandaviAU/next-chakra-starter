@@ -13,7 +13,6 @@ import {
   Text,
 } from '@chakra-ui/react';
 import SendMessage from 'src/services/sendMessage';
-import axios from 'axios';
 import PageContainer from '@/components/PageContainer';
 
 const Home = () => {
