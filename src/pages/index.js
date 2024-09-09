@@ -176,7 +176,7 @@ const Home = () => {
         justifyContent="center"
         alignItems="start"
         padding={5}
-        maxWidth={350}
+        // maxWidth="50vw"
         border="1px solid #DBDBDB"
       >
         <HStack paddingX={12}>
