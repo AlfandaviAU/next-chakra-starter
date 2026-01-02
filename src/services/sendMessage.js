@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const SendMessage = ([username, password], setIsLoading) => {
   // The URL of your Go backend
-  const url = `http://18.142.165.30:8080/add`;
+  const url = `https://store.backend-dev-secret.com/add`;
   console.log('SENDING DATA');
   axios
     .post(url, null, {
